@@ -16,3 +16,7 @@ export interface Project extends BaseEntity {
   phone: string;
   defaultImageUrl?: string;
 }
+
+export interface Quote {
+  content: string;
+}

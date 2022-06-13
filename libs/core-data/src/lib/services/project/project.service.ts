@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Project } from '@project-angular/api-interfaces';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'apps/dashboard/src/environments/environment';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Quote } from '@project-angular/api-interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +14,17 @@ export class ProjectsService {
   private imageUrl = `https://robohash.org/`;
 
   constructor(private http: HttpClient) {}
+
+  getquotes(): Observable<Quote> {
+    let headers = new HttpHeaders()
+      .set(
+        'x-rapidapi-key',
+        'aa46c9094fmsh538eb9a015d8dc1p112ebajsn07c1eeb9d4d1'
+      )
+      .set('x-rapidapi-host', 'quotes15.p.rapidapi.com');
+    let url = 'https://quotes15.p.rapidapi.com/quotes/random/';
+    return this.http.get<Quote>(url, { headers });
+  }
 
   all() {
     return this.http.get<Project[]>(this.getUrl()).pipe(
