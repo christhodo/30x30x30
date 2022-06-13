@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-    Directory
+    Photos
   </mat-card-title>
   <mat-card-content>
     <mat-list>
@@ -9,7 +9,7 @@
         class="mat-list-option"
         (click)="selected.emit(project)"
       >
-        <span matLine>{{ project.name }}</span>
+        <span matLine>{{ project.title }}</span>
         <button
           *ngIf="!readonly"
           attr.data-cy="delete-project-{{ project.id }}-btn"

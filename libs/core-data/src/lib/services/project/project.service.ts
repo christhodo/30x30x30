@@ -10,31 +10,12 @@ import { Quote } from '@project-angular/api-interfaces';
   providedIn: 'root',
 })
 export class ProjectsService {
-  model = 'users';
-  private imageUrl = `https://robohash.org/`;
+  model = 'photos';
 
   constructor(private http: HttpClient) {}
 
-  getquotes(): Observable<Quote> {
-    let headers = new HttpHeaders()
-      .set(
-        'x-rapidapi-key',
-        'aa46c9094fmsh538eb9a015d8dc1p112ebajsn07c1eeb9d4d1'
-      )
-      .set('x-rapidapi-host', 'quotes15.p.rapidapi.com');
-    let url = 'https://quotes15.p.rapidapi.com/quotes/random/';
-    return this.http.get<Quote>(url, { headers });
-  }
-
   all() {
-    return this.http.get<Project[]>(this.getUrl()).pipe(
-      map((projects) =>
-        projects.map((project) => ({
-          ...project,
-          defaultImageUrl: `${this.imageUrl}${project.name}`,
-        }))
-      )
-    );
+    return this.http.get<Project[]>(this.getUrl());
   }
 
   find(id: string) {
@@ -55,10 +36,6 @@ export class ProjectsService {
 
   private getUrl() {
     return `${environment.apiEndpoint}/${this.model}`;
-  }
-
-  private getImage() {
-    return `${this.imageUrl}${this.model}`;
   }
 
   private getUrlWithId(id) {

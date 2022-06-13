@@ -12,9 +12,9 @@ export interface BaseEntity {
 }
 
 export interface Project extends BaseEntity {
-  name: string;
-  phone: string;
-  defaultImageUrl?: string;
+  title: string;
+  url: string;
+  thumbnailUrl?: string;
 }
 
 export interface Quote {

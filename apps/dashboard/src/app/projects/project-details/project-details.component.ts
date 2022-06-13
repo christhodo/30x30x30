@@ -10,7 +10,7 @@ export class ProjectDetailsComponent {
   currentProject: Project;
   originalTitle = '';
   @Input() set project(value: Project) {
-    if (value) this.originalTitle = value.name;
+    if (value) this.originalTitle = value.title;
     this.currentProject = { ...value };
   }
   @Output() saved = new EventEmitter();

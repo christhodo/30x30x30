@@ -4,7 +4,7 @@
       Editing {{ originalTitle }}
     </span>
     <ng-template #elseBlock>
-      Select User
+      Select Photo
     </ng-template>
   </mat-card-title>
   <form #form="ngForm" (submit)="saved.emit(currentProject)">
@@ -12,24 +12,24 @@
       <mat-form-field class="full-width">
         <input
           matInput
-          placeholder="Name"
-          [(ngModel)]="currentProject.name"
+          placeholder="Title"
+          [(ngModel)]="currentProject.title"
           type="text"
-          name="name"
+          name="title"
           required
         />
       </mat-form-field>
       <mat-form-field class="full-width">
         <input
           matInput
-          placeholder="Phone"
-          [(ngModel)]="currentProject.phone"
+          placeholder="Url"
+          [(ngModel)]="currentProject.url"
           type="text"
-          name="phone"
+          name="url"
           required
         />
       </mat-form-field>
-      <project-angular-profiles></project-angular-profiles>
+      <img mat-card-sm-image [src]="currentProject.thumbnailUrl" />
     </mat-card-content>
     <mat-card-actions>
       <button

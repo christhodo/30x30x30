@@ -9,7 +9,7 @@ import { AuthGuardService } from '@project-angular/core-data';
 export class AppComponent {
   title = '';
 
-  links = [{ path: '/projects', icon: 'view_list', title: 'Directory' }];
+  links = [{ path: '/projects', icon: 'view_list', title: 'Gallery' }];
 
   userIsAuthenticated = this.authService.isAuthenticated;
   constructor(private authService: AuthGuardService) {}
