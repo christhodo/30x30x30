@@ -40,9 +40,9 @@ export const getSelectedProjectId = createSelector(
 
 const emptyProject: Project = {
   id: null,
-  name: '',
-  phone: '',
-  defaultImageUrl: '',
+  title: '',
+  url: '',
+  thumbnailUrl: '',
 };
 
 export const getSelectedProject = createSelector(

@@ -13,11 +13,4 @@ export class ProfilesComponent implements OnInit {
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {}
-
-  getQuote() {
-    this.projectsService.getquotes().subscribe((data) => {
-      console.log(data.content);
-      this.quote = data.content;
-    });
-  }
 }
